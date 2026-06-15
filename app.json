@@ -7,7 +7,7 @@
     "icon": "./assets/images/icon.png",
     "scheme": "saudemais",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
+    "newArchEnabled": false,
     "ios": {
       "supportsTablet": true
     },
@@ -24,8 +24,9 @@
     "web": {
       "output": "single",
       "favicon": "./assets/images/favicon.png"
-    }
-  
-    
+    },
+    "plugins": [
+      "expo-font"
+    ]
   }
 }

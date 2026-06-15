@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import TelaPrincipal from './TELAS/TelaPrincipal';
 import LocalizarUBS from './TELAS/LocalizarUBS';
 import AgendarConsulta from './TELAS/AgendarConsulta'
-//import Configuracoes from './TELAS/Configuracoes';
+import Configuracoes from './TELAS/Configuracoes';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,6 +15,7 @@ export default function App() {
         <Stack.Screen name="TelaPrincipal" component={TelaPrincipal} />
          <Stack.Screen name="AgendarConsulta" component={AgendarConsulta} />
         <Stack.Screen name="LocalizarUBS" component={LocalizarUBS} />
+        <Stack.Screen name="Configuracoes" component={Configuracoes} />
         
       </Stack.Navigator>
     </NavigationContainer>
