@@ -1,19 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
-import {
-  Alert,
-  Linking,
-  Modal,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Switch,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Alert,Linking,Modal,SafeAreaView,ScrollView,StyleSheet,Switch,Text,TextInput,TouchableOpacity,View,} from 'react-native';
 
 export default function Configuracoes() {
   const navigation = useNavigation();
@@ -59,9 +47,9 @@ export default function Configuracoes() {
       case 'dados':
         return 'Dados Pessoais';
       case 'privacidade':
-        return 'Privacidade e Seguranca';
-      case 'aparencia':
-        return 'Aparencia';
+        return 'Privacidade e Segurança';
+      case 'aparência':
+        return 'Aparência';
       case 'ajuda':
         return 'Ajuda e Suporte';
       case 'login':
@@ -77,7 +65,7 @@ export default function Configuracoes() {
         return (
           <>
             {logado ? (
-              <Text style={styles.successText}>Voce ja esta logado</Text>
+              <Text style={styles.successText}>Você ja esta logado</Text>
             ) : (
               <>
                 <Text style={styles.label}>E-mail</Text>
@@ -140,18 +128,18 @@ export default function Configuracoes() {
         return (
           <>
             <View style={styles.switchRow}>
-              <Text style={styles.label}>Permitir camera</Text>
+              <Text style={styles.label}>Permitir câmera</Text>
               <Switch value={camera} onValueChange={setCamera} />
             </View>
 
             <View style={styles.switchRow}>
-              <Text style={styles.label}>Permitir localizacao</Text>
+              <Text style={styles.label}>Permitir localizacão</Text>
               <Switch value={localizacao} onValueChange={setLocalizacao} />
             </View>
           </>
         );
 
-      case 'aparencia':
+      case 'aparência':
         return (
           <>
             <View style={styles.switchRow}>
@@ -163,13 +151,13 @@ export default function Configuracoes() {
 
             <TouchableOpacity style={styles.option} onPress={() => setIdioma('PT')}>
               <Text style={idioma === 'PT' ? styles.selectedOption : null}>
-                Portugues
+                Português
               </Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.option} onPress={() => setIdioma('EN')}>
               <Text style={idioma === 'EN' ? styles.selectedOption : null}>
-                Ingles
+                Inglês
               </Text>
             </TouchableOpacity>
           </>
@@ -212,7 +200,7 @@ export default function Configuracoes() {
 
           <Text style={styles.title}>Configuracoes</Text>
           <Text style={styles.subtitle}>
-            Gerencie suas preferencias e personalize sua experiencia no app.
+            Gerencie suas preferencias e personalize sua experiência no app.
           </Text>
         </View>
 
@@ -250,7 +238,7 @@ export default function Configuracoes() {
           </View>
 
           <View style={styles.cardContent}>
-            <Text style={styles.cardTitle}>Privacidade e Seguranca</Text>
+            <Text style={styles.cardTitle}>Privacidade e Segurança</Text>
           </View>
         </TouchableOpacity>
 
@@ -263,7 +251,7 @@ export default function Configuracoes() {
           </View>
 
           <View style={styles.cardContent}>
-            <Text style={styles.cardTitle}>Aparencia</Text>
+            <Text style={styles.cardTitle}>Aparência</Text>
           </View>
         </TouchableOpacity>
 

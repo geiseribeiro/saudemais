@@ -25,7 +25,7 @@ export default function TelaPrincipal({ navigation }) {
 
     Alert.alert(
       'Recuperacao enviada',
-      `Se existir uma conta com ${emailRecuperacao}, enviaremos instrucoes de recuperacao.`
+      `Se existir uma conta com ${emailRecuperacao}, enviaremos instruções de recuperação.`
     );
 
     setEmailRecuperacao('');
@@ -36,9 +36,9 @@ export default function TelaPrincipal({ navigation }) {
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.header}>
-          <Text style={styles.logo}>Saude+</Text>
+          <Text style={styles.logo}>Saúde+</Text>
           <Text style={styles.subtitle}>
-            Informacao que cuida da nossa comunidade.
+            Informação que cuida da nossa comunidade.
           </Text>
 
           <View style={styles.locationRow}>
@@ -53,9 +53,9 @@ export default function TelaPrincipal({ navigation }) {
           </View>
 
           <View style={styles.welcomeContent}>
-            <Text style={styles.welcomeTitle}>Bem-vindo ao Saude+!</Text>
+            <Text style={styles.welcomeTitle}>Bem-vindo ao Saúde+!</Text>
             <Text style={styles.welcomeText}>
-              Seu guia de informacoes sobre as UBS de Carutapera.
+              Seu guia de informações sobre as UBS de Carutapera.
             </Text>
           </View>
 
@@ -91,7 +91,7 @@ export default function TelaPrincipal({ navigation }) {
           <View style={styles.menuContent}>
             <Text style={styles.menuTitle}>Agendar Consulta</Text>
             <Text style={styles.menuDescription}>
-              Solicite um horario de atendimento.
+              Solicite um horário de atendimento.
             </Text>
           </View>
 
@@ -107,7 +107,7 @@ export default function TelaPrincipal({ navigation }) {
           </View>
 
           <View style={styles.menuContent}>
-            <Text style={styles.menuTitle}>Configuracoes</Text>
+            <Text style={styles.menuTitle}>Configurações</Text>
             <Text style={styles.menuDescription}>
               Personalize o aplicativo.
             </Text>
@@ -131,7 +131,7 @@ export default function TelaPrincipal({ navigation }) {
 
           <View style={styles.infoContent}>
             <Text style={styles.infoTitle}>
-              Informacao confiavel, saude mais proxima de voce.
+              Informação confiável, saúde mais próxima de você.
             </Text>
             <Text style={styles.infoText}>
               Acompanhe as UBS da nossa cidade.
