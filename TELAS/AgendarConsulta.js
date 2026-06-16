@@ -1,16 +1,5 @@
 import { useState } from 'react';
-import {
-  Alert,
-  KeyboardAvoidingView,
-  Platform,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Alert,KeyboardAvoidingView,Platform,SafeAreaView,ScrollView,StyleSheet,Text,TextInput,TouchableOpacity,View,} from 'react-native';
 
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -22,6 +11,9 @@ export default function AgendarConsulta() {
   const [ubs, setUbs] = useState('');
   const [data, setData] = useState('');
   const [hora, setHora] = useState('');
+  const [tipo, setTipo] = useState('Clinico geral');
+
+  const tiposConsulta = ['Clinico geral', 'Enfermagem', 'Odontologia'];
 
   function agendar() {
     if (!nome || !ubs || !data || !hora) {
@@ -31,7 +23,7 @@ export default function AgendarConsulta() {
 
     Alert.alert(
       'Consulta agendada',
-      `Paciente: ${nome}\nUBS: ${ubs}\nData: ${data}\nHora: ${hora}`
+      `Paciente: ${nome}\nConsulta: ${tipo}\nUBS: ${ubs}\nData: ${data}\nHora: ${hora}`
     );
 
     setNome('');
@@ -55,7 +47,47 @@ export default function AgendarConsulta() {
             <Text style={styles.title}>Agendar Consulta</Text>
           </View>
 
+          <View style={styles.summaryCard}>
+            <View style={styles.summaryIcon}>
+              <Ionicons name="medkit" size={36} color="#10B981" />
+            </View>
+
+            <View style={styles.summaryContent}>
+              <Text style={styles.summaryTitle}>Solicite seu atendimento</Text>
+              <Text style={styles.summaryText}>
+                Preencha os dados abaixo para registrar o pedido de consulta na
+                UBS escolhida.
+              </Text>
+            </View>
+          </View>
+
           <View style={styles.form}>
+            <Text style={styles.label}>Tipo de consulta</Text>
+
+            <View style={styles.chips}>
+              {tiposConsulta.map((item) => {
+                const selected = tipo === item;
+
+                return (
+                  <TouchableOpacity
+                    key={item}
+                    style={[styles.chip, selected && styles.chipSelected]}
+                    onPress={() => setTipo(item)}
+                  >
+                    <Text
+                      style={[
+                        styles.chipText,
+                        selected && styles.chipTextSelected,
+                      ]}
+                    >
+                      {item}
+                    </Text>
+                  </TouchableOpacity>
+                );
+              })}
+            </View>
+
+            <Text style={styles.label}>Paciente</Text>
             <TextInput
               style={styles.input}
               placeholder="Seu nome"
@@ -65,6 +97,7 @@ export default function AgendarConsulta() {
               autoCapitalize="words"
             />
 
+            <Text style={styles.label}>UBS</Text>
             <TextInput
               style={styles.input}
               placeholder="UBS desejada"
@@ -73,6 +106,7 @@ export default function AgendarConsulta() {
               onChangeText={setUbs}
             />
 
+            <Text style={styles.label}>Data</Text>
             <TextInput
               style={styles.input}
               placeholder="Data (ex: 20/06/2026)"
@@ -82,6 +116,7 @@ export default function AgendarConsulta() {
               keyboardType="numeric"
             />
 
+            <Text style={styles.label}>Horario</Text>
             <TextInput
               style={styles.input}
               placeholder="Horario (ex: 14:30)"
@@ -92,6 +127,7 @@ export default function AgendarConsulta() {
             />
 
             <TouchableOpacity style={styles.button} onPress={agendar}>
+              <Ionicons name="checkmark-circle" size={22} color="#FFF" />
               <Text style={styles.buttonText}>Confirmar Agendamento</Text>
             </TouchableOpacity>
           </View>
@@ -135,6 +171,78 @@ const styles = StyleSheet.create({
     padding: 20,
   },
 
+  summaryCard: {
+    backgroundColor: '#FFF',
+    margin: 20,
+    padding: 18,
+    borderRadius: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    elevation: 2,
+  },
+
+  summaryIcon: {
+    width: 62,
+    height: 62,
+    borderRadius: 18,
+    backgroundColor: '#DCFCE7',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  summaryContent: {
+    flex: 1,
+    marginLeft: 14,
+  },
+
+  summaryTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#0F172A',
+  },
+
+  summaryText: {
+    marginTop: 6,
+    color: '#64748B',
+  },
+
+  label: {
+    color: '#334155',
+    fontWeight: 'bold',
+    marginBottom: 8,
+  },
+
+  chips: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginBottom: 18,
+  },
+
+  chip: {
+    backgroundColor: '#FFF',
+    borderWidth: 1,
+    borderColor: '#BBF7D0',
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    borderRadius: 12,
+    marginRight: 8,
+    marginBottom: 8,
+  },
+
+  chipSelected: {
+    backgroundColor: '#10B981',
+    borderColor: '#10B981',
+  },
+
+  chipText: {
+    color: '#166534',
+    fontWeight: 'bold',
+  },
+
+  chipTextSelected: {
+    color: '#FFF',
+  },
+
   input: {
     backgroundColor: '#FFF',
     padding: 14,
@@ -149,6 +257,8 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 12,
     alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
     marginTop: 10,
   },
 
@@ -156,5 +266,6 @@ const styles = StyleSheet.create({
     color: '#FFF',
     fontWeight: 'bold',
     fontSize: 16,
+    marginLeft: 8,
   },
 });

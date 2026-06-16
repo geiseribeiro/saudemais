@@ -82,6 +82,24 @@ export default function TelaPrincipal({ navigation }) {
 
         <TouchableOpacity
           style={styles.menuCard}
+          onPress={() => navigation.navigate('AgendarConsulta')}
+        >
+          <View style={[styles.iconBox, { backgroundColor: '#10B981' }]}>
+            <Ionicons name="calendar" size={55} color="#FFFFFF" />
+          </View>
+
+          <View style={styles.menuContent}>
+            <Text style={styles.menuTitle}>Agendar Consulta</Text>
+            <Text style={styles.menuDescription}>
+              Solicite um horario de atendimento.
+            </Text>
+          </View>
+
+          <Ionicons name="chevron-forward" size={30} color="#10B981" />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.menuCard}
           onPress={() => navigation.navigate('Configuracoes')}
         >
           <View style={[styles.iconBox, { backgroundColor: '#8B5CF6' }]}>
